@@ -1,10 +1,12 @@
 import numpy as np
 import random
 
-def get_random_pixel_drop(Drop_num = 50, l_rand_bound = 0, u_rand_bound = 255):
-    def eraser(input_img):
-        img_h, img_w, img_c = input_img.shape
 
+def get_random_pixel_drop(Drop_num = 10, l_rand_bound = 0, u_rand_bound = 255):
+    def drop(input_img):    
+        if len(input_img) == 0:
+            print('invalid_image')
+        img_h, img_w, img_c = input_img.shape
         for drop in range(Drop_num):
             rand_x = random.randint(0,img_h-1)
             rand_y = random.randint(0,img_w-1)
@@ -12,9 +14,6 @@ def get_random_pixel_drop(Drop_num = 50, l_rand_bound = 0, u_rand_bound = 255):
             left = np.random.randint(0, img_w)
             top = np.random.randint(0, img_h)
             c = random.randint(l_rand_bound,u_rand_bound)
-
             input_img[rand_x, rand_y, :]= c
-
         return input_img
-
-    return eraser
+    return drop
