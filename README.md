@@ -6,7 +6,14 @@ Random pixel drop is inspired from dropout regularisation technique and cutout i
 ```
 git clone https://github.com/chekoduadarsh/Random-Pixel-Drop
 ```
-The above given command will download the repository to your working directory, then in your pythin code tou can import the library as following,
+The above given command will download the repository to your working directory, then in your python code tou can import the library as following,
 
+## With ImageDataGenerator in Keras
 
+It is very easy to use if you are using ImageDataGenerator in Keras, get `drop` function from `get_random_pixel_drop()` which can be passed to `ImageDataGenerator` as `preprocessing_function`. This function uses 3 hyper parameters
 
+`Drop_num` -> Number of dropped pixels
+
+`l_rand_bound` -> lower boundry for random pixel value generation
+
+`u_rand_bound` -> upper boundry for random pixel value generation
